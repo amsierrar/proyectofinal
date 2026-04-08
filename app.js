@@ -25,9 +25,9 @@ app.use('/api/ubicacion',require('./routes/ubicacion.routes'));
 app.use('/api/restriccion',require('./routes/restriccion.routes'));
 app.use('/api/producto-pictograma', productoPictogramaRoutes);
 
-app.listen(3015, () => {
-  console.log("Servidor corriendo en el puerto 3015");
-});
+//app.listen(3015, () => {
+  //console.log("Servidor corriendo en el puerto 3015");
+//});
 
 
 dbconnect();

@@ -1,12 +1,18 @@
 const mongoose = require('mongoose');
-require ('dotenv').config()
+require('dotenv').config();
 
-const dbconnect = () => {
-    mongoose.set('strictQuery', true);
+let isConnected = false;
 
-    mongoose.connect(process.env.MONGO_URL)
-        .then(() => console.log("Conexión exitosa a tecquimdb"))
-        .catch((err) => console.log("Error:", err.message));
-}
+const dbconnect = async () => {
+    if (isConnected) return;
+
+    try {
+        await mongoose.connect(process.env.MONGO_URL);
+        isConnected = true;
+        console.log("Conexión exitosa a MongoDB");
+    } catch (err) {
+        console.log("Error:", err.message);
+    }
+};
 
 module.exports = dbconnect;
