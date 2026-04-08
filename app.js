@@ -32,3 +32,4 @@ app.listen(3015, () => {
 
 dbconnect();
 
+module.exports = app;
